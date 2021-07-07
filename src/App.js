@@ -1,18 +1,21 @@
+import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function Food({ name }) {
-  return <h1> I like {name} </h1>;
+class App extends React.Component {
+  state = {
+    isLoading: true
+  };
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({isLoading: false});
+    }, 6000)
+    /* JS구문 */
+  }
+  render() {
+    const { isLoading } = this.state;
+    return <div>{isLoading ? "Loading..." : "We are ready"} </div>;
+  }
 }
-
-function App() {
-  return (
-  <div>
-   <Food name="potato" />
-   <Food name="suishi" />
-  </div>
-  );
-}
-
 
 export default App;
